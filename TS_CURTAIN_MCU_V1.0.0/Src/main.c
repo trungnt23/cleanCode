@@ -101,9 +101,8 @@ typedef struct {
 /*                              PRIVATE DATA                                  */
 /******************************************************************************/
 
-u8_t byStatus = 0;
-u32_t dwStartTime = 0;
-u32_t dwStartTimerB3 = 0;
+u8_t g_byStatus = 0;
+u32_t g_dwStartTimerB3 = 0;
 ButtonName_t buttonB2;
 ButtonName_t buttonB4;
 
@@ -341,11 +340,11 @@ static void_t interruptPB3_Init(void_t) {
 void_t EXTI4_IRQHandler(void_t) {
 	if (EXTI_GetFlagStatus(EXTI_Line4) == SET) {
 		if (GPIO_ReadInputDataBit(BUTTONB3_GPIO_PORT,BUTTONB3_GPIO_PIN)== GPIO_PIN_RESET) {
-			dwStartTimerB3 = GetMilSecTick();	// Lưu thời gian nhấn nút
+			g_dwStartTimerB3 = GetMilSecTick();	// Lưu thời gian nhấn nút
 		}
 		else
 		{
-			byStatus++;						// Khi nhả nút thì biến tăng
+			g_byStatus++;						// Khi nhả nút thì biến tăng
 		}
 	}
 	//xóa cờ ngắt sau khi thực hiện xong chương trình ngắt.
@@ -454,19 +453,19 @@ static u32_t calculatorTime(u32_t dwTimeInit, u32_t dwTimeCurrent) {
  * @retval None
  */
 static void_t toggleLed_5Times(void_t) {
-	if (byStatus == 5) {
+	if (g_byStatus == 5) {
 		delay_ms(200);
 		blinkLedStatusPower(LEDGREEN1_GPIO_PORT, LEDGREEN1_GPIO_PIN,
 		LEDGREEN2_GPIO_PORT, LEDGREEN2_GPIO_PIN, 5);
 		buzzerControlSetBeep(BUZZER_GPIO_PORT, BUZZER_GPIO_PIN, 2);
-		byStatus = 0;
+		g_byStatus = 0;
 	}
 	else
 	{
 		// check timeout between button presses
-		if(calculatorTime(dwStartTimerB3, GetMilSecTick()) > PRESS_TIMEOUT) //
+		if(calculatorTime(g_dwStartTimerB3, GetMilSecTick()) > PRESS_TIMEOUT) //
 		{
-			byStatus = 0;
+			g_byStatus = 0;
 		}
 	}
 }

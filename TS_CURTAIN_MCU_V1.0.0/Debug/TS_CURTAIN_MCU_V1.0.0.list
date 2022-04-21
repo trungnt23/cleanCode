@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020024  2**0
                   CONTENTS, READONLY
- 12 .debug_info   0000562d  00000000  00000000  00020054  2**0
+ 12 .debug_info   0000561b  00000000  00000000  00020054  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000163f  00000000  00000000  00025681  2**0
+ 13 .debug_abbrev 0000163f  00000000  00000000  0002566f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000678  00000000  00000000  00026cc0  2**3
+ 14 .debug_aranges 00000678  00000000  00000000  00026cb0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000005b0  00000000  00000000  00027338  2**3
+ 15 .debug_ranges 000005b0  00000000  00000000  00027328  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0000bd5b  00000000  00000000  000278e8  2**0
+ 16 .debug_macro  0000bd5b  00000000  00000000  000278d8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000621a  00000000  00000000  00033643  2**0
+ 17 .debug_line   0000621a  00000000  00000000  00033633  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00040409  00000000  00000000  0003985d  2**0
+ 18 .debug_str    0004040d  00000000  00000000  0003984d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  00079c66  2**0
+ 19 .comment      00000053  00000000  00000000  00079c5a  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000019d4  00000000  00000000  00079cbc  2**2
+ 20 .debug_frame  000019d4  00000000  00000000  00079cb0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2598,7 +2598,7 @@ void_t EXTI4_IRQHandler(void_t) {
  8000fac:	4603      	mov	r3, r0
  8000fae:	2b00      	cmp	r3, #0
  8000fb0:	d105      	bne.n	8000fbe <EXTI4_IRQHandler+0x2a>
-			dwStartTimerB3 = GetMilSecTick();	// Lưu thời gian nhấn nút
+			g_dwStartTimerB3 = GetMilSecTick();	// Lưu thời gian nhấn nút
  8000fb2:	f7ff fe05 	bl	8000bc0 <GetMilSecTick>
  8000fb6:	4603      	mov	r3, r0
  8000fb8:	4a07      	ldr	r2, [pc, #28]	; (8000fd8 <EXTI4_IRQHandler+0x44>)
@@ -2607,7 +2607,7 @@ void_t EXTI4_IRQHandler(void_t) {
 		}
 		else
 		{
-			byStatus++;						// Khi nhả nút thì biến tăng
+			g_byStatus++;						// Khi nhả nút thì biến tăng
  8000fbe:	4b07      	ldr	r3, [pc, #28]	; (8000fdc <EXTI4_IRQHandler+0x48>)
  8000fc0:	781b      	ldrb	r3, [r3, #0]
  8000fc2:	3301      	adds	r3, #1
@@ -2751,7 +2751,7 @@ void_t EXTI0_IRQHandler(void_t) {
 
 08001098 <ledControlStatus>:
  * @brief  set status LED
- * @param  None
+ * @param  PORT, PIN
  * @retval None
  */
 static void_t ledControlStatus(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN,
@@ -2793,7 +2793,7 @@ static void_t ledControlStatus(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN,
 
 080010cc <buzzerControlSetBeep>:
  * @brief  set status buzzer
- * @param  None
+ * @param  PORT, PIN
  * @retval None
  */
 static void_t buzzerControlSetBeep(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN,
@@ -2844,8 +2844,8 @@ static void_t buzzerControlSetBeep(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN,
 08001118 <calculatorTime>:
  * @func   calculatorTime
  * @brief  Caculator time button
- * @param  None
- * @retval None
+ * @param  time
+ * @retval u32_t
  */
 static u32_t calculatorTime(u32_t dwTimeInit, u32_t dwTimeCurrent) {
  8001118:	b480      	push	{r7}
@@ -2893,7 +2893,7 @@ static void_t toggleLed_5Times(void_t) {
  800114c:	b590      	push	{r4, r7, lr}
  800114e:	b083      	sub	sp, #12
  8001150:	af02      	add	r7, sp, #8
-	if (byStatus == 5) {
+	if (g_byStatus == 5) {
  8001152:	4b17      	ldr	r3, [pc, #92]	; (80011b0 <toggleLed_5Times+0x64>)
  8001154:	781b      	ldrb	r3, [r3, #0]
  8001156:	2b05      	cmp	r3, #5
@@ -2915,18 +2915,18 @@ static void_t toggleLed_5Times(void_t) {
  8001174:	f44f 7100 	mov.w	r1, #512	; 0x200
  8001178:	480f      	ldr	r0, [pc, #60]	; (80011b8 <toggleLed_5Times+0x6c>)
  800117a:	f7ff ffa7 	bl	80010cc <buzzerControlSetBeep>
-		byStatus = 0;
+		g_byStatus = 0;
  800117e:	4b0c      	ldr	r3, [pc, #48]	; (80011b0 <toggleLed_5Times+0x64>)
  8001180:	2200      	movs	r2, #0
  8001182:	701a      	strb	r2, [r3, #0]
-		if(calculatorTime(dwStartTimerB3, GetMilSecTick()) > PRESS_TIMEOUT) //
+		if(calculatorTime(g_dwStartTimerB3, GetMilSecTick()) > PRESS_TIMEOUT) //
 		{
-			byStatus = 0;
+			g_byStatus = 0;
 		}
 	}
 }
  8001184:	e00f      	b.n	80011a6 <toggleLed_5Times+0x5a>
-		if(calculatorTime(dwStartTimerB3, GetMilSecTick()) > PRESS_TIMEOUT) //
+		if(calculatorTime(g_dwStartTimerB3, GetMilSecTick()) > PRESS_TIMEOUT) //
  8001186:	4b0d      	ldr	r3, [pc, #52]	; (80011bc <toggleLed_5Times+0x70>)
  8001188:	681c      	ldr	r4, [r3, #0]
  800118a:	f7ff fd19 	bl	8000bc0 <GetMilSecTick>
@@ -2937,7 +2937,7 @@ static void_t toggleLed_5Times(void_t) {
  8001198:	4603      	mov	r3, r0
  800119a:	f5b3 7ffa 	cmp.w	r3, #500	; 0x1f4
  800119e:	d902      	bls.n	80011a6 <toggleLed_5Times+0x5a>
-			byStatus = 0;
+			g_byStatus = 0;
  80011a0:	4b03      	ldr	r3, [pc, #12]	; (80011b0 <toggleLed_5Times+0x64>)
  80011a2:	2200      	movs	r2, #0
  80011a4:	701a      	strb	r2, [r3, #0]
@@ -2954,7 +2954,7 @@ static void_t toggleLed_5Times(void_t) {
 
 080011c0 <blinkLedStatusPower>:
  * @brief  Led blink
- * @param  None
+ * @param  PORT, PIN
  * @retval None
  */
 static void_t blinkLedStatusPower(GPIO_TypeDef *GPIOx1, uint16_t GPIO_PIN_ID1,

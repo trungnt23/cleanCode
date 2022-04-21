@@ -4764,8 +4764,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Src/main.o
  .data          0x0000000000000000        0x0 ./Src/main.o
  .bss           0x0000000000000000        0x0 ./Src/main.o
- .bss.dwStartTime
-                0x0000000000000000        0x4 ./Src/main.o
  .debug_macro   0x0000000000000000      0xab4 ./Src/main.o
  .debug_macro   0x0000000000000000       0x22 ./Src/main.o
  .debug_macro   0x0000000000000000       0x8e ./Src/main.o
@@ -5393,12 +5391,13 @@ LOAD e:/stm32/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.e
                 0x00000000200001c0        0x4 ./SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos/timer.o
  .bss.g_pUartQueueRx
                 0x00000000200001c4        0x8 ./SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial/serial.o
- .bss.byStatus  0x00000000200001cc        0x1 ./Src/main.o
-                0x00000000200001cc                byStatus
+ .bss.g_byStatus
+                0x00000000200001cc        0x1 ./Src/main.o
+                0x00000000200001cc                g_byStatus
  *fill*         0x00000000200001cd        0x3 
- .bss.dwStartTimerB3
+ .bss.g_dwStartTimerB3
                 0x00000000200001d0        0x4 ./Src/main.o
-                0x00000000200001d0                dwStartTimerB3
+                0x00000000200001d0                g_dwStartTimerB3
  *(COMMON)
  COMMON         0x00000000200001d4       0x20 ./Src/main.o
                 0x00000000200001d4                buttonB4
@@ -5467,7 +5466,7 @@ LOAD e:/stm32/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.e
 LOAD e:/stm32/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD e:/stm32/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x0000000000000000     0x562d
+.debug_info     0x0000000000000000     0x561b
  .debug_info    0x0000000000000000      0x610 ./SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Source/system_stm32f4xx.o
  .debug_info    0x0000000000000610      0x596 ./SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/src/misc.o
  .debug_info    0x0000000000000ba6      0x387 ./SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/src/stm32f401re_exti.o
@@ -5479,8 +5478,8 @@ LOAD e:/stm32/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.e
  .debug_info    0x0000000000003a97      0xb9f ./SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial/serial.o
  .debug_info    0x0000000000004636      0x367 ./SDK_1.0.3_NUCLEO-F401RE/shared/Utilities/buff.o
  .debug_info    0x000000000000499d      0x2e2 ./SDK_1.0.3_NUCLEO-F401RE/shared/Utilities/utilities.o
- .debug_info    0x0000000000004c7f      0x98c ./Src/main.o
- .debug_info    0x000000000000560b       0x22 ./Startup/startup_stm32f401retx.o
+ .debug_info    0x0000000000004c7f      0x97a ./Src/main.o
+ .debug_info    0x00000000000055f9       0x22 ./Startup/startup_stm32f401retx.o
 
 .debug_abbrev   0x0000000000000000     0x163f
  .debug_abbrev  0x0000000000000000      0x154 ./SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Source/system_stm32f4xx.o
@@ -5597,7 +5596,7 @@ LOAD e:/stm32/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.e
  .debug_line    0x0000000000005822      0x974 ./Src/main.o
  .debug_line    0x0000000000006196       0x84 ./Startup/startup_stm32f401retx.o
 
-.debug_str      0x0000000000000000    0x40409
+.debug_str      0x0000000000000000    0x4040d
  .debug_str     0x0000000000000000    0x35801 ./SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Source/system_stm32f4xx.o
                                       0x3598d (size before relaxing)
  .debug_str     0x0000000000035801      0x6f3 ./SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/src/misc.o
@@ -5620,9 +5619,9 @@ LOAD e:/stm32/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.e
                                       0x358a0 (size before relaxing)
  .debug_str     0x000000000003fdc3      0x10f ./SDK_1.0.3_NUCLEO-F401RE/shared/Utilities/utilities.o
                                        0x3e63 (size before relaxing)
- .debug_str     0x000000000003fed2      0x506 ./Src/main.o
-                                      0x3c63c (size before relaxing)
- .debug_str     0x00000000000403d8       0x31 ./Startup/startup_stm32f401retx.o
+ .debug_str     0x000000000003fed2      0x50a ./Src/main.o
+                                      0x3c649 (size before relaxing)
+ .debug_str     0x00000000000403dc       0x31 ./Startup/startup_stm32f401retx.o
                                          0x8f (size before relaxing)
 
 .comment        0x0000000000000000       0x53
