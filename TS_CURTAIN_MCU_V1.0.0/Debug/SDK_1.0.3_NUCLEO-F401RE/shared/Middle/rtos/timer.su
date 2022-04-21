@@ -1,0 +1,11 @@
+core_cm4.h:1629:22:NVIC_SetPriority	16	static
+core_cm4.h:1760:26:SysTick_Config	16	static
+timer.c:69:1:TimerInit	24	static
+timer.c:90:1:TimerStart	40	static
+timer.c:135:1:TimerChangePeriod	16	static
+timer.c:151:1:TimerRestart	24	static
+timer.c:181:1:TimerStop	16	static
+timer.c:212:1:GetMilSecTick	4	static
+timer.c:223:1:processTimerScheduler	24	static
+timer.c:267:1:TimeExpired	24	static,ignoring_inline_asm
+timer.c:311:1:SysTick_Handler	4	static

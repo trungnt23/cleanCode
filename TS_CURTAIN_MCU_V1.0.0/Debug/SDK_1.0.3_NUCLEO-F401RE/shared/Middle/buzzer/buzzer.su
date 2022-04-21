@@ -1,0 +1,9 @@
+buzzer.c:63:1:BuzzerControl_Init	8	static
+buzzer.c:76:1:BuzzOff	16	static
+buzzer.c:96:1:BuzzPlay	32	static
+buzzer.c:128:1:BuzzerControl_SetMelody	16	static
+buzzer.c:143:1:BuzzerControl_SendPacketRespond	32	static
+buzzer.c:165:1:BUZZTIM_InitTimer	40	static
+buzzer.c:191:1:BUZZTIM_InitPWMChannel	48	static
+buzzer.c:231:1:BuzzerControl_SetDutyCycle	24	static
+buzzer.c:250:1:BuzzerControl_SetPreriod	16	static

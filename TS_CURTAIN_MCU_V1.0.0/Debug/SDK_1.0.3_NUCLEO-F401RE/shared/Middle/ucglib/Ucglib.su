@@ -1,0 +1,6 @@
+Ucglib.c:66:13:delayMicroseconds	16	static
+Ucglib.c:79:13:ucg_gpio_init	16	static
+Ucglib.c:100:13:ucg_com_arduino_send_generic_SW_SPI	24	static
+Ucglib.c:126:16:ucg_com_arduino_generic_SW_SPI	24	static
+Ucglib.c:225:6:Ucglib4WireSWSPI_begin	16	static
+Ucglib.c:233:6:Ucglib_init	16	static
