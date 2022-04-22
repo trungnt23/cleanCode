@@ -1,0 +1,18 @@
+!SESSION 2022-01-16 00:40:33.069 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2022-01-16 00:44:14.067
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2022-01-16 00:44:14.874
+!MESSAGE Log4j initialized with config file E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2022-01-16 00:46:24.827
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2022-01-16 00:50:08.541
+!MESSAGE Indexed 'ABL_MCU_V1.0.0' (3 sources, 53 headers) in 9.19 sec: 1,964 declarations; 2,810 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)

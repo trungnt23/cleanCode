@@ -1,0 +1,884 @@
+01:06:28 **** Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f401retx.d" -MT"Startup/startup_stm32f401retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f401retx.o" "../Startup/startup_stm32f401retx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+../Src/main.c:33:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   33 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc "E:/Funix_302_iot/Kalman/Kalman_filter/kalman_filter.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Kalman_filter/kalman_filter.d" -MT"Kalman_filter/kalman_filter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Kalman_filter/kalman_filter.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+    664	      8	   1568	   2240	    8c0	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+01:23:35 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'LightSensor_AdcInit':
+../Src/main.c:69:7: error: 'adc_read_mode' undeclared (first use in this function)
+   69 |   if (adc_read_mode == ADC_READ_MODE_POLLING)
+      |       ^~~~~~~~~~~~~
+../Src/main.c:69:7: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../Src/main.c:34:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   34 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+01:26:06 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:34:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   34 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+    664	      8	   1568	   2240	    8c0	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+01:29:02 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:83:13: warning: 'LedControl_TimerOCInit' defined but not used [-Wunused-function]
+   83 | static void LedControl_TimerOCInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:34:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   34 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+   text	   data	    bss	    dec	    hex	filename
+    664	      8	   1568	   2240	    8c0	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+01:39:11 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'LightSensor_AdcPollingRead':
+../Src/main.c:132:9: warning: assignment to 'uint16_t' {aka 'short unsigned int'} from 'uint16_t (*)(ADC_TypeDef *)' {aka 'short unsigned int (*)(struct <anonymous> *)'} makes integer from pointer without a cast [-Wint-conversion]
+  132 |  result = ADC_GetConversionValue;
+      |         ^
+At top level:
+../Src/main.c:128:13: warning: 'LightSensor_AdcPollingRead' defined but not used [-Wunused-function]
+  128 | static void LightSensor_AdcPollingRead(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:83:13: warning: 'LedControl_TimerOCInit' defined but not used [-Wunused-function]
+   83 | static void LedControl_TimerOCInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:34:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   34 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+    664	      8	   1568	   2240	    8c0	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+Finished building: ABL_MCU_V1.0.0.list
+ 
+ 
+01:45:40 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'LedControl_TimerOCSetPwm':
+../Src/main.c:153:2: warning: implicit declaration of function 'TIM_SetCompare'; did you mean 'TIM_SetCompare4'? [-Wimplicit-function-declaration]
+  153 |  TIM_SetCompare()
+      |  ^~~~~~~~~~~~~~
+      |  TIM_SetCompare4
+../Src/main.c:153:18: error: expected ';' before '}' token
+  153 |  TIM_SetCompare()
+      |                  ^
+      |                  ;
+  154 | }
+      | ~                 
+At top level:
+../Src/main.c:151:13: warning: 'LedControl_TimerOCSetPwm' defined but not used [-Wunused-function]
+  151 | static void LedControl_TimerOCSetPwm(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:146:13: warning: 'Kanman_Light' defined but not used [-Wunused-function]
+  146 | static void Kanman_Light(void)
+      |             ^~~~~~~~~~~~
+../Src/main.c:84:13: warning: 'LedControl_TimerOCInit' defined but not used [-Wunused-function]
+   84 | static void LedControl_TimerOCInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:35:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   35 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+01:48:14 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'LedControl_TimerOCSetPwm':
+../Src/main.c:157:19: error: 'Tim_Period' undeclared (first use in this function)
+  157 |  pulse_length = ((Tim_Period *Duty_Cycle)/ 100);
+      |                   ^~~~~~~~~~
+../Src/main.c:157:19: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../Src/main.c:151:13: warning: 'LedControl_TimerOCSetPwm' defined but not used [-Wunused-function]
+  151 | static void LedControl_TimerOCSetPwm(uint16_t Duty_Cycle)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:146:13: warning: 'Kanman_Light' defined but not used [-Wunused-function]
+  146 | static void Kanman_Light(void)
+      |             ^~~~~~~~~~~~
+../Src/main.c:84:13: warning: 'LedControl_TimerOCInit' defined but not used [-Wunused-function]
+   84 | static void LedControl_TimerOCInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:35:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   35 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+01:48:42 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:151:13: warning: 'LedControl_TimerOCSetPwm' defined but not used [-Wunused-function]
+  151 | static void LedControl_TimerOCSetPwm(uint16_t Duty_Cycle)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:146:13: warning: 'Kanman_Light' defined but not used [-Wunused-function]
+  146 | static void Kanman_Light(void)
+      |             ^~~~~~~~~~~~
+../Src/main.c:84:13: warning: 'LedControl_TimerOCInit' defined but not used [-Wunused-function]
+   84 | static void LedControl_TimerOCInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:35:13: warning: 'LightSensor_AdcInit' defined but not used [-Wunused-function]
+   35 | static void LightSensor_AdcInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+   text	   data	    bss	    dec	    hex	filename
+    664	      8	   1568	   2240	    8c0	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+Finished building: ABL_MCU_V1.0.0.list
+ 
+ 
+02:00:27 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'AppInitCommon':
+../Src/main.c:45:2: warning: statement with no effect [-Wunused-value]
+   45 |  LightSensor_AdcInit
+      |  ^~~~~~~~~~~~~~~~~~~
+../Src/main.c:45:21: error: expected ';' before '}' token
+   45 |  LightSensor_AdcInit
+      |                     ^
+      |                     ;
+   46 | }
+      | ~                    
+At top level:
+../Src/main.c:168:13: warning: 'ABL_StepBrightness' defined but not used [-Wunused-function]
+  168 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+../Src/main.c:158:13: warning: 'Kanman_Light' defined but not used [-Wunused-function]
+  158 | static void Kanman_Light(void)
+      |             ^~~~~~~~~~~~
+../Src/main.c:96:13: warning: 'LedControl_TimerOCInit' defined but not used [-Wunused-function]
+   96 | static void LedControl_TimerOCInit(void)
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:41:13: warning: 'AppInitCommon' defined but not used [-Wunused-function]
+   41 | static void AppInitCommon(void)
+      |             ^~~~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+02:01:18 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:174:13: warning: 'ABL_StepBrightness' defined but not used [-Wunused-function]
+  174 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+../Src/main.c:164:13: warning: 'Kanman_Light' defined but not used [-Wunused-function]
+  164 | static void Kanman_Light(void)
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+   4984	     44	   1956	   6984	   1b48	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+02:05:11 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:174:13: warning: 'ABL_StepBrightness' defined but not used [-Wunused-function]
+  174 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+../Src/main.c:164:13: warning: 'Kanman_Light' defined but not used [-Wunused-function]
+  164 | static void Kanman_Light(void)
+      |             ^~~~~~~~~~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+   text	   data	    bss	    dec	    hex	filename
+   4984	     44	   1956	   6984	   1b48	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+14:10:43 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'Kanman_Light':
+../Src/main.c:171:30: error: expected ';' before '}' token
+  171 |  return lightLevelAfterFilter
+      |                              ^
+      |                              ;
+  172 | }
+      | ~                             
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:204:3: error: too many arguments to function 'ABL_StepBrightness'
+  204 |   ABL_StepBrightness(ABL_StepBrightness);
+      |   ^~~~~~~~~~~~~~~~~~
+../Src/main.c:179:13: note: declared here
+  179 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+At top level:
+../Src/main.c:184:13: warning: 'ABL_Process' defined but not used [-Wunused-function]
+  184 | static void ABL_Process(void)
+      |             ^~~~~~~~~~~
+../Src/main.c:28:17: warning: 'lightLevel' defined but not used [-Wunused-variable]
+   28 | static uint16_t lightLevel = 0;
+      |                 ^~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:10:53 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:204:3: error: too many arguments to function 'ABL_StepBrightness'
+  204 |   ABL_StepBrightness(ABL_StepBrightness);
+      |   ^~~~~~~~~~~~~~~~~~
+../Src/main.c:179:13: note: declared here
+  179 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+At top level:
+../Src/main.c:184:13: warning: 'ABL_Process' defined but not used [-Wunused-function]
+  184 | static void ABL_Process(void)
+      |             ^~~~~~~~~~~
+../Src/main.c:28:17: warning: 'lightLevel' defined but not used [-Wunused-variable]
+   28 | static uint16_t lightLevel = 0;
+      |                 ^~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:17:39 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_StepBrightness':
+../Src/main.c:183:2: error: too few arguments to function 'LedControl_TimerOCSetPwm'
+  183 |  LedControl_TimerOCSetPwm();
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:176:13: note: declared here
+  176 | static void LedControl_TimerOCSetPwm(TIM_TypeDef* TIMx, uint32_t Compare)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:208:22: error: 'Kaman_ligh' undeclared (first use in this function); did you mean 'Kanman_ligh'?
+  208 |   ABL_StepBrightness(Kaman_ligh);
+      |                      ^~~~~~~~~~
+      |                      Kanman_ligh
+../Src/main.c:208:22: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:208:3: error: too many arguments to function 'ABL_StepBrightness'
+  208 |   ABL_StepBrightness(Kaman_ligh);
+      |   ^~~~~~~~~~~~~~~~~~
+../Src/main.c:181:13: note: declared here
+  181 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+At top level:
+../Src/main.c:186:13: warning: 'ABL_Process' defined but not used [-Wunused-function]
+  186 | static void ABL_Process(void)
+      |             ^~~~~~~~~~~
+../Src/main.c:28:17: warning: 'lightLevel' defined but not used [-Wunused-variable]
+   28 | static uint16_t lightLevel = 0;
+      |                 ^~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:17:58 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_StepBrightness':
+../Src/main.c:182:2: error: too few arguments to function 'LedControl_TimerOCSetPwm'
+  182 |  LedControl_TimerOCSetPwm();
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:175:13: note: declared here
+  175 | static void LedControl_TimerOCSetPwm(TIM_TypeDef* TIMx, uint32_t Compare)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:207:22: error: 'Kaman_ligh' undeclared (first use in this function); did you mean 'Kanman_ligh'?
+  207 |   ABL_StepBrightness(Kaman_ligh);
+      |                      ^~~~~~~~~~
+      |                      Kanman_ligh
+../Src/main.c:207:22: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:207:3: error: too many arguments to function 'ABL_StepBrightness'
+  207 |   ABL_StepBrightness(Kaman_ligh);
+      |   ^~~~~~~~~~~~~~~~~~
+../Src/main.c:180:13: note: declared here
+  180 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+At top level:
+../Src/main.c:185:13: warning: 'ABL_Process' defined but not used [-Wunused-function]
+  185 | static void ABL_Process(void)
+      |             ^~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:18:41 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:207:22: error: 'Kaman_ligh' undeclared (first use in this function); did you mean 'Kanman_ligh'?
+  207 |   ABL_StepBrightness(Kaman_ligh);
+      |                      ^~~~~~~~~~
+      |                      Kanman_ligh
+../Src/main.c:207:22: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:207:3: error: too many arguments to function 'ABL_StepBrightness'
+  207 |   ABL_StepBrightness(Kaman_ligh);
+      |   ^~~~~~~~~~~~~~~~~~
+../Src/main.c:180:13: note: declared here
+  180 | static void ABL_StepBrightness(void)
+      |             ^~~~~~~~~~~~~~~~~~
+At top level:
+../Src/main.c:185:13: warning: 'ABL_Process' defined but not used [-Wunused-function]
+  185 | static void ABL_Process(void)
+      |             ^~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:19:45 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:208:22: error: 'Kaman_ligh' undeclared (first use in this function); did you mean 'Kanman_ligh'?
+  208 |   ABL_StepBrightness(Kaman_ligh);
+      |                      ^~~~~~~~~~
+      |                      Kanman_ligh
+../Src/main.c:208:22: note: each undeclared identifier is reported only once for each function it appears in
+At top level:
+../Src/main.c:186:13: warning: 'ABL_Process' defined but not used [-Wunused-function]
+  186 | static void ABL_Process(void)
+      |             ^~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:20:23 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:210:22: error: 'Kaman_ligh' undeclared (first use in this function); did you mean 'Kanman_ligh'?
+  210 |   ABL_StepBrightness(Kaman_ligh);
+      |                      ^~~~~~~~~~
+      |                      Kanman_ligh
+../Src/main.c:210:22: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:20:50 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:210:22: error: 'Kaman_light' undeclared (first use in this function); did you mean 'Kanman_light'?
+  210 |   ABL_StepBrightness(Kaman_light);
+      |                      ^~~~~~~~~~~
+      |                      Kanman_light
+../Src/main.c:210:22: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:22:11 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7460	     44	   1996	   9500	   251c	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+14:32:41 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+In file included from E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc/stm32f401re_rcc.h:37,
+                 from ../Src/main.c:15:
+../Src/main.c: In function 'ABL_StepBrightness':
+E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include/stm32f401re.h:2357:29: warning: passing argument 1 of 'LedControl_TimerOCSetPwm' makes integer from pointer without a cast [-Wint-conversion]
+ 2357 | #define TIM1                ((TIM_TypeDef *) TIM1_BASE)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                             |
+      |                             TIM_TypeDef * {aka struct <anonymous> *}
+../Src/main.c:185:27: note: in expansion of macro 'TIM1'
+  185 |  LedControl_TimerOCSetPwm(TIM1,Compare);
+      |                           ^~~~
+../Src/main.c:178:47: note: expected 'uint32_t' {aka 'long unsigned int'} but argument is of type 'TIM_TypeDef *' {aka 'struct <anonymous> *'}
+  178 | static void LedControl_TimerOCSetPwm(uint32_t Compare)
+      |                                      ~~~~~~~~~^~~~~~~
+../Src/main.c:185:2: error: too many arguments to function 'LedControl_TimerOCSetPwm'
+  185 |  LedControl_TimerOCSetPwm(TIM1,Compare);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~
+../Src/main.c:178:13: note: declared here
+  178 | static void LedControl_TimerOCSetPwm(uint32_t Compare)
+      |             ^~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Src/subdir.mk:25: Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+14:32:58 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7460	     44	   1996	   9500	   251c	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:43:59 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+   7456	     44	   1996	   9496	   2518	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:45:39 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7456	     44	   1996	   9496	   2518	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+16:50:03 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:32:13: warning: 'src3' defined but not used [-Wunused-variable]
+   32 | static char src3[20] = "";
+      |             ^~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  18952	     44	   6284	  25280	   62c0	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:50:50 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:223:3: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  223 |   memset(src3, 0, sizeof(src3));
+      |   ^~~~~~
+../Src/main.c:223:3: warning: incompatible implicit declaration of built-in function 'memset'
+../Src/main.c:24:1: note: include '<string.h>' or provide a declaration of 'memset'
+   23 | #include <ucg.h>
+  +++ |+#include <string.h>
+   24 | /* Private defined*****************************************************************/
+../Src/main.c:224:3: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+  224 |   sprintf(src3, " Light = %d lux  ", Kanman_light);
+      |   ^~~~~~~
+../Src/main.c:224:3: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Src/main.c:24:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   23 | #include <ucg.h>
+  +++ |+#include <stdio.h>
+   24 | /* Private defined*****************************************************************/
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24116	    148	   6348	  30612	   7794	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:52:37 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:224:3: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  224 |   memset(src3, 0, sizeof(src3));
+      |   ^~~~~~
+../Src/main.c:224:3: warning: incompatible implicit declaration of built-in function 'memset'
+../Src/main.c:25:1: note: include '<string.h>' or provide a declaration of 'memset'
+   24 | #include <ucg.h>
+  +++ |+#include <string.h>
+   25 | /* Private defined*****************************************************************/
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24116	    148	   6348	  30612	   7794	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:53:12 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c: In function 'ABL_Process':
+../Src/main.c:225:3: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+  225 |   memset(src3, 0, sizeof(src3));
+      |   ^~~~~~
+../Src/main.c:225:3: warning: incompatible implicit declaration of built-in function 'memset'
+../Src/main.c:26:1: note: include '<string.h>' or provide a declaration of 'memset'
+   25 | #include <utilities.h>
+  +++ |+#include <string.h>
+   26 | /* Private defined*****************************************************************/
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24116	    148	   6348	  30612	   7794	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:53:25 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24116	    148	   6348	  30612	   7794	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:53:35 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24116	    148	   6348	  30612	   7794	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+16:58:30 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24112	    148	   6348	  30608	   7790	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+16:58:42 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24112	    148	   6348	  30608	   7790	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+17:02:46 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  22104	    148	   6348	  28600	   6fb8	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:02:54 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22104	    148	   6348	  28600	   6fb8	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+17:03:25 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  22104	    148	   6348	  28600	   6fb8	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:13:37 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24140	    148	   6348	  30636	   77ac	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:14:48 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  24112	    148	   6348	  30608	   7790	ABL_MCU_V1.0.0.elf
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:20:20 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24108	    148	   6348	  30604	   778c	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:20:40 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24108	    148	   6348	  30604	   778c	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:21:04 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24112	    148	   6348	  30608	   7790	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:21:16 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24112	    148	   6348	  30608	   7790	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+17:21:21 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24112	    148	   6348	  30608	   7790	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+17:39:27 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+../Src/main.c:44:13: warning: 'ABL_StepBrightness' declared 'static' but never defined [-Wunused-function]
+   44 | static void ABL_StepBrightness(uint32_t Compare);
+      |             ^~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+   text	   data	    bss	    dec	    hex	filename
+  24088	    148	   6348	  30584	   7778	ABL_MCU_V1.0.0.elf
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:39:50 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24088	    148	   6348	  30584	   7778	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+17:39:56 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24088	    148	   6348	  30584	   7778	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+17:44:10 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24088	    148	   6348	  30584	   7778	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
+23:06:10 **** Incremental Build of configuration Debug for project ABL_MCU_V1.0.0 ****
+make -j4 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DNUCLEO_F401RE -DSTM32 -DSTM32F401RETx -DSTM32F4 -c -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/CMSIS/Include" -I"E:/Funix_302_iot/Kalman/Kalman_filter" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Drivers/STM32F401RE_StdPeriph_Driver/inc" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/button" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/buzzer" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/led" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/rtos" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/sensor" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/serial" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Middle/ucglib" -I"E:/Funix_303_iot/thuvien/SDK_1.0.3_NUCLEO-F401RE/shared/Utilities" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "ABL_MCU_V1.0.0.elf" @"objects.list"  -lLibraries -mcpu=cortex-m4 -T"E:\Funix_303_iot\Assignment\ABL_MCU_V1.0.0\ABL_MCU_V1.0.0\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ABL_MCU_V1.0.0.map" -Wl,--gc-sections -static -L"E:\Funix_303_iot\thuvien\SDK_1.0.3_NUCLEO-F401RE\lib_stm" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ABL_MCU_V1.0.0.elf
+ 
+arm-none-eabi-size   ABL_MCU_V1.0.0.elf 
+arm-none-eabi-objdump -h -S  ABL_MCU_V1.0.0.elf  > "ABL_MCU_V1.0.0.list"
+arm-none-eabi-objcopy  -O binary  ABL_MCU_V1.0.0.elf  "ABL_MCU_V1.0.0.bin"
+   text	   data	    bss	    dec	    hex	filename
+  24088	    148	   6348	  30584	   7778	ABL_MCU_V1.0.0.elf
+Finished building: default.size.stdout
+ 
+Finished building: ABL_MCU_V1.0.0.bin
+ 
+Finished building: ABL_MCU_V1.0.0.list
+ 
