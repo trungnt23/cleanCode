@@ -1,0 +1,2 @@
+ucg_pixel.c:38:6:ucg_SetColor	16	static
+ucg_pixel.c:49:6:ucg_DrawPixel	16	static

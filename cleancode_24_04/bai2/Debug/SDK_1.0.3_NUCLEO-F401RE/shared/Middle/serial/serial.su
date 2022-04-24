@@ -1,0 +1,13 @@
+serial.c:81:6:TimerGetCurrentTime	16	static
+serial.c:93:10:TimerGetElapsedTime	16	static
+serial.c:106:1:Serial_Init	8	static
+serial.c:123:1:SerialHandleEventCallback	16	static
+serial.c:136:1:PollRxBuff	16	static
+serial.c:217:1:SendACK	4	static
+serial.c:227:1:SendNACK	4	static
+serial.c:237:1:processSerialReceiver	16	static
+serial.c:280:1:Serial_SendPacket	72	static
+serial.c:322:1:CalculateCheckXOR	24	static
+serial.c:345:1:UART_RegBufferRx	16	static
+serial.c:364:1:UART_Init	48	static
+serial.c:431:1:USART2_IRQHandler	16	static,ignoring_inline_asm
