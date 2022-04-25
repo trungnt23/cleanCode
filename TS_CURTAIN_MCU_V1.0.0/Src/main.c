@@ -91,10 +91,10 @@ typedef enum {
 } ButtonState;
 
 typedef struct {
-	ButtonState State;
+	ButtonState state;
 	u32_t timePress;
-	u32_t timeReleased;
-	u32_t Count;
+	u32_t timeRelease;
+	u32_t count;
 } ButtonName_t;
 
 /******************************************************************************/
@@ -103,8 +103,9 @@ typedef struct {
 
 u8_t g_byStatus = 0;
 u32_t g_dwStartTimerB3 = 0;
-ButtonName_t buttonB2;
-ButtonName_t buttonB4;
+
+ButtonName_t g_buttonB2;
+ButtonName_t g_buttonB4;
 
 /******************************************************************************/
 /*                              EXPORTED DATA                                 */
@@ -118,13 +119,13 @@ static void_t interruptPA4_Init(void_t);
 static void_t interruptPA0_Init(void_t);
 static void_t interruptPB3_Init(void_t);
 
-static void_t ledControlStatus(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN_ID, u8_t byStatus);
+static void_t ledControlStatus(GPIO_TypeDef *pGPIOx, u16_t GPIO_PIN_ID, u8_t byStatus);
 static void_t toggleLed_5Times(void_t);
-static void_t buzzerControlSetBeep(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN, u32_t num);
-static void_t blinkLedStatusPower(GPIO_TypeDef *GPIOx1, uint16_t GPIO_PIN_ID1,
-								 GPIO_TypeDef *GPIOx2, uint16_t GPIO_PIN_ID2, u32_t num);
+static void_t buzzerControlSetBeep(GPIO_TypeDef *pGPIOx, u16_t GPIO_PIN, u32_t num);
+static void_t blinkLedStatusPower(GPIO_TypeDef *pGPIOx1, u16_t GPIO_PIN_ID1,
+								 GPIO_TypeDef *pGPIOx2, u16_t GPIO_PIN_ID2, u32_t num);
 static u32_t calculatorTime(u32_t dwTimeInit, u32_t dwTimeCurrent);
-static void_t LedControl_TimPressRealease(void_t);
+static void_t ledControlTimPressRealease(void_t);
 static void_t delay_ms(u32_t dwMillisecond);
 /******************************************************************************/
 /*                            EXPORTED FUNCTIONS                              */
@@ -133,7 +134,7 @@ static void_t delay_ms(u32_t dwMillisecond);
 /******************************************************************************/
 
 int main(void_t) {
-	buttonB2.Count = 0;
+	g_buttonB2.count = 0;
 	SystemCoreClockUpdate();
 	ledBuzzer_Init();
 	TimerInit();
@@ -144,7 +145,7 @@ int main(void_t) {
 						LEDGREEN2_GPIO_PORT, LEDGREEN2_GPIO_PIN, 4);
 	while (1) {
 		toggleLed_5Times();
-		LedControl_TimPressRealease();
+		ledControlTimPressRealease();
 
 	}
 }
@@ -361,13 +362,13 @@ void_t EXTI3_IRQHandler(void_t) {
 	if (EXTI_GetFlagStatus(EXTI_Line3) == SET) {
 
 		if (GPIO_ReadInputDataBit(BUTTONB2_GPIO_PORT,BUTTONB2_GPIO_PIN)== GPIO_PIN_RESET) {
-			buttonB2.State = BUTTON_PRESSED;
-			buttonB2.timePress = GetMilSecTick();
-			buttonB2.Count++;
+			g_buttonB2.state = BUTTON_PRESSED;
+			g_buttonB2.timePress = GetMilSecTick();
+			g_buttonB2.count++;
 		} else {
 
-			buttonB2.timeReleased = GetMilSecTick();
-			buttonB2.State = BUTTON_RELEASED;
+			g_buttonB2.timeRelease = GetMilSecTick();
+			g_buttonB2.state = BUTTON_RELEASED;
 		}
 	}
 	//xóa cờ ngắt sau khi thực hiện xong chương trình ngắt.
@@ -383,12 +384,12 @@ void_t EXTI3_IRQHandler(void_t) {
 void_t EXTI0_IRQHandler(void_t) {
 	if (EXTI_GetFlagStatus(EXTI_Line0) == SET) {
 		if (GPIO_ReadInputDataBit(BUTTONB4_GPIO_PORT,BUTTONB4_GPIO_PIN)== GPIO_PIN_RESET) {
-			buttonB4.State = BUTTON_PRESSED;
-			buttonB4.timePress = GetMilSecTick();
-			buttonB4.Count++;
+			g_buttonB4.state = BUTTON_PRESSED;
+			g_buttonB4.timePress = GetMilSecTick();
+			g_buttonB4.count++;
 		} else {
-			buttonB4.timeReleased = GetMilSecTick();
-			buttonB4.State = BUTTON_RELEASED;
+			g_buttonB4.timeRelease = GetMilSecTick();
+			g_buttonB4.state = BUTTON_RELEASED;
 		}
 	}
 	//xóa cờ ngắt sau khi thực hiện xong chương trình ngắt.
@@ -401,15 +402,15 @@ void_t EXTI0_IRQHandler(void_t) {
  * @param  PORT, PIN
  * @retval None
  */
-static void_t ledControlStatus(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN,
+static void_t ledControlStatus(GPIO_TypeDef *pGPIOx, u16_t GPIO_PIN,
 		u8_t byStatus) {
 	// SET bit in BSRR Registers
 
 	if (byStatus == GPIO_PIN_SET) {
-		GPIOx->BSRRL = GPIO_PIN;
+		pGPIOx->BSRRL = GPIO_PIN;
 	}
 	if (byStatus == GPIO_PIN_RESET) {
-		GPIOx->BSRRH = GPIO_PIN;
+		pGPIOx->BSRRH = GPIO_PIN;
 	}
 }
 
@@ -419,12 +420,11 @@ static void_t ledControlStatus(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN,
  * @param  PORT, PIN
  * @retval None
  */
-static void_t buzzerControlSetBeep(GPIO_TypeDef *GPIOx, uint16_t GPIO_PIN,
-		u32_t num) {
-	for (u32_t i = 0; i < num; i++) {
-		GPIO_SetBits(GPIOx, GPIO_PIN);
+static void_t buzzerControlSetBeep(GPIO_TypeDef *pGPIOx, u16_t wGPIO_Pin, u32_t dwNum) {
+	for (u32_t i = 0; i < dwNum; i++) {
+		GPIO_SetBits(pGPIOx, wGPIO_Pin);
 		delay_ms(200);
-		GPIO_ResetBits(GPIOx, GPIO_PIN);
+		GPIO_ResetBits(pGPIOx, wGPIO_Pin);
 		delay_ms(200);
 	}
 }
@@ -476,79 +476,79 @@ static void_t toggleLed_5Times(void_t) {
  * @param  PORT, PIN
  * @retval None
  */
-static void_t blinkLedStatusPower(GPIO_TypeDef *GPIOx1, uint16_t GPIO_PIN_ID1,
-		GPIO_TypeDef *GPIOx2, uint16_t GPIO_PIN_ID2, u32_t num) {
+static void_t blinkLedStatusPower(GPIO_TypeDef *pGPIOx1, u16_t wGPIO_Pin_ID1,
+		GPIO_TypeDef *pGPIOx2, u16_t wGPIO_Pin_ID2, u32_t num) {
 	for (u32_t i = 0; i < num; i++) {
-		ledControlStatus(GPIOx1, GPIO_PIN_ID1, GPIO_PIN_HIGH);
-		ledControlStatus(GPIOx2, GPIO_PIN_ID2, GPIO_PIN_HIGH);
+		ledControlStatus(pGPIOx1, wGPIO_Pin_ID1, GPIO_PIN_HIGH);
+		ledControlStatus(pGPIOx2, wGPIO_Pin_ID2, GPIO_PIN_HIGH);
 		delay_ms(100);
-		ledControlStatus(GPIOx1, GPIO_PIN_ID1, GPIO_PIN_LOW);
-		ledControlStatus(GPIOx2, GPIO_PIN_ID2, GPIO_PIN_LOW);
+		ledControlStatus(pGPIOx1, wGPIO_Pin_ID1, GPIO_PIN_LOW);
+		ledControlStatus(pGPIOx2, wGPIO_Pin_ID2, GPIO_PIN_LOW);
 		delay_ms(100);
 	}
 }
 
 /**
- * @func   LedControl_TimPressRealease
+ * @func   ledControlTimPressRealease
  * @brief  Control led with state button
  * @param  None
  * @retval None
  */
 
-static void_t LedControl_TimPressRealease(void_t) {
+static void_t ledControlTimPressRealease(void_t) {
 //	BUTTON B2****************************************************************************************************
 	// check holding button
-	if (buttonB2.State == BUTTON_PRESSED) {
-		if (calculatorTime(buttonB2.timePress, GetMilSecTick()) > PRESS_TIMEOUT) {
-			buttonB2.Count = 0;
+	if (g_buttonB2.state == BUTTON_PRESSED) {
+		if (calculatorTime(g_buttonB2.timePress, GetMilSecTick()) > PRESS_TIMEOUT) {
+			g_buttonB2.count = 0;
 			ledControlStatus(LEDBLUE2_GPIO_PORT, LEDBLUE2_GPIO_PIN,GPIO_PIN_HIGH);
 		}
 	}
 
 	// check release button
-	if (buttonB2.State == BUTTON_RELEASED) {
+	if (g_buttonB2.state == BUTTON_RELEASED) {
 
 		ledControlStatus(LEDBLUE2_GPIO_PORT, LEDBLUE2_GPIO_PIN, GPIO_PIN_LOW);
-		if (buttonB2.Count == 1) {
-				if (calculatorTime(buttonB2.timeReleased, GetMilSecTick()) > RELEASE_TIMEOUT)
-					buttonB2.Count = 0;
+		if (g_buttonB2.count == 1) {
+				if (calculatorTime(g_buttonB2.timeRelease, GetMilSecTick()) > RELEASE_TIMEOUT)
+					g_buttonB2.count = 0;
 
 		}
-		if (buttonB2.Count == 2) {
+		if (g_buttonB2.count == 2) {
 			ledControlStatus(LEDBLUE2_GPIO_PORT, LEDBLUE2_GPIO_PIN, GPIO_PIN_HIGH);
 		}
-		if (buttonB2.Count >= 3) {
+		if (g_buttonB2.count >= 3) {
 			ledControlStatus(LEDBLUE2_GPIO_PORT, LEDBLUE2_GPIO_PIN, GPIO_PIN_LOW);
-			buttonB2.Count = 0;
+			g_buttonB2.count = 0;
 		}
 	}
-	if (buttonB2.State == NO_CLICK) {
+	if (g_buttonB2.state == NO_CLICK) {
 
 	}
 
 //BUTTON B4****************************************************************************************************
-	if (buttonB4.State == BUTTON_PRESSED) {
-		if (calculatorTime(buttonB4.timePress, GetMilSecTick()) > PRESS_TIMEOUT) {			// Kiểm tra xem nút có đang được giữ không
-			buttonB4.Count = 0;
+	if (g_buttonB4.state == BUTTON_PRESSED) {
+		if (calculatorTime(g_buttonB4.timePress, GetMilSecTick()) > PRESS_TIMEOUT) {			// Kiểm tra xem nút có đang được giữ không
+			g_buttonB4.count = 0;
 			ledControlStatus(LEDRED2_GPIO_PORT, LEDRED2_GPIO_PIN,GPIO_PIN_HIGH);
 		}
 	}
-	if (buttonB4.State == BUTTON_RELEASED) {
+	if (g_buttonB4.state == BUTTON_RELEASED) {
 
 		ledControlStatus(LEDRED2_GPIO_PORT, LEDRED2_GPIO_PIN, GPIO_PIN_LOW);
-		if (buttonB4.Count == 1) {
-				if (calculatorTime(buttonB4.timeReleased, GetMilSecTick()) > RELEASE_TIMEOUT)  // Kiểm tra khoảng thời gian giữa 2 lần nhấn nút
-					buttonB4.Count = 0;
+		if (g_buttonB4.count == 1) {
+				if (calculatorTime(g_buttonB4.timeRelease, GetMilSecTick()) > RELEASE_TIMEOUT)  // Kiểm tra khoảng thời gian giữa 2 lần nhấn nút
+					g_buttonB4.count = 0;
 		}
-		if (buttonB4.Count == 2) {
+		if (g_buttonB4.count == 2) {
 			ledControlStatus(LEDRED2_GPIO_PORT, LEDRED2_GPIO_PIN, GPIO_PIN_HIGH);
 		}
-		if (buttonB4.Count >= 3) {
+		if (g_buttonB4.count >= 3) {
 			ledControlStatus(LEDRED2_GPIO_PORT, LEDRED2_GPIO_PIN, GPIO_PIN_LOW);
-			buttonB4.Count = 0;
+			g_buttonB4.count = 0;
 		}
 	}
-	if (buttonB4.State == NO_CLICK) {
+	if (g_buttonB4.state == NO_CLICK) {
 
 	}
 }
