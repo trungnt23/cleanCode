@@ -12,84 +12,88 @@
  * Lumi, JSC.
  * All Rights Reserved
  *
- * File name: led.h
+ * File name: BUTTON.h
  *
  * Description:
  *
  *
  * Last Changed By:  $Author: trungnt $
  * Revision:         $Revision: $
- * Last Changed:     $Date: $April 15, 2022
+ * Last Changed:     $Date: $April 27, 2022
  *
  * Code sample:
  ******************************************************************************/
 // Enclosing macro to prevent multiple inclusion
-#ifndef LED_H_
-#define LED_H_
+#ifndef BUTTON_H_
+#define BUTTON_H_
 /******************************************************************************/
 /*                              INCLUDE FILES                                 */
 /******************************************************************************/
+#include <stddef.h>
 #include "typedefs.h"
 /******************************************************************************/
 /*                     PRIVATE TYPES and DEFINITIONS                         */
 /******************************************************************************/
 
+
 /******************************************************************************/
 /*                     EXPORTED TYPES and DEFINITIONS                         */
 /******************************************************************************/
-#define LED_RGB_COUNT				2
-#define LED_RGB_ELEMENT				3
+#define BUTTON_COUNT					2
+#define GPIO_DOUT						0
+#define BUTTON_DEBOUNCE					5
+#define BUTTON_CHECK_HOLD_CYCLES_MS		200
+#define BUTTON_CHECK_RELEASE_MS			500
+#define HOLD_TIME_MIN					5
 
-#define LED_PORT_1					gpioPortA
-#define LED_BLUE_PIN_1				(0U)
-#define LED_GREEN_PIN_1				(3U)
-#define LED_RED_PIN_1				(4U)
+#define BUTTON_1_PORT					gpioPortD
+#define BUTTON_1_PIN					(4U)
 
-#define LED_PORT_2					gpioPortD
-#define LED_BLUE_PIN_2				(2U)
-#define LED_GREEN_PIN_2				(1U)
-#define LED_RED_PIN_2				(0U)
+#define BUTTON_2_PORT					gpioPortD
+#define BUTTON_2_PIN					(3U)
 
-#define LED_RGB_1                       { { LED_PORT_1, LED_RED_PIN_1 }, { LED_PORT_1, LED_GREEN_PIN_1 }, { LED_PORT_1, LED_BLUE_PIN_1 } }
-#define LED_RGB_2                       { { LED_PORT_2, LED_RED_PIN_2 }, { LED_PORT_2, LED_GREEN_PIN_2 }, { LED_PORT_2, LED_BLUE_PIN_2 } }
+#define BUTTON_INIT						{{BUTTON_1_PORT,BUTTON_1_PIN},{BUTTON_2_PORT,BUTTON_2_PIN}}
 
-typedef enum{
-	LED1,
-	LED2
-}LedNumber;
-typedef enum
-{
-	ledOff 				= 0x000,
-	ledRed				= BIT(0),
-	ledGreen			= BIT(1),
-	ledBlue				= BIT(2),
-	ledPink				= ledRed  | ledBlue,
-	ledyellow			= ledGreen| ledRed,
-	ledRGB				= ledRed  | ledGreen | ledBlue
-}LedColor;
 
 typedef enum
 {
-	red,
-	green,
-	blue,
-	off
-}LedState;
+	press_1	= 1,
+	press_2 ,
+	press_3 ,
+	press_4 ,
+	press_5,
+	press_max=10,
+	hold_1s	,
+	hold_2s	,
+	hold_3s	,
+	hold_4s	,
+	hold_5s ,
+	hold_max,
+	unknown,
+}ButtonEvent;
 
-enum{
-	LED_FREE,
-	LED_TOGGLE
+enum
+{
+	SW_1,
+	SW_2
+};
+
+enum
+{
+	BUTTON_PRESS,
+	BUTTON_RELEASE
 };
 
 typedef struct {
-  GPIO_Port_TypeDef   port;
-  unsigned int        pin;
-  bool 				  ledBlinkMode;
-  LedColor		  color;
-  u32_t 			  onTime;
-  u32_t			  offTime;
-  u8_t			  blinkTime;
-} LedArray_t;
+  GPIO_Port_TypeDef		port;
+  uint_t				pin;
+  bool_t				state;
+  u8_t					pressCount;
+  u8_t					holdTime;
+  bool_t				release;
+  bool_t				press;
+  bool_t                isHolding;
+} ButtonConfig_t;
 
 /******************************************************************************/
 /*                              PRIVATE DATA                                  */
@@ -106,12 +110,9 @@ typedef struct {
 /******************************************************************************/
 /*                            EXPORTED FUNCTIONS                              */
 /******************************************************************************/
-void_t ledInit(void_t);
-void_t turnOffLedRBG(LedNumber index);
-void_t toggleLed(LedNumber ledIndex, LedColor color, u8_t toggleTime, u32_t onTimeMs, u32_t offTimeMs);
+typedef void_t (*buttonHoldingEvent)(u8_t btIndex, ButtonEvent holdEvent );
+typedef void_t (*buttonPressAndHoldEvent)(u8_t btIndex, ButtonEvent pressEvent);
+
+void_t buttonInit(buttonHoldingEvent holdingHandler,buttonPressAndHoldEvent pressHandler);
 /******************************************************************************/
-#endif /* LED_H_ */
-
-
-
-
+#endif /* BUTTON_H_ */

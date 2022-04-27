@@ -12,7 +12,7 @@
  * Lumi, JSC.
  * All Rights Reserved
  *
- * File name: led.h
+ * File name: kalman_filer.h
  *
  * Description:
  *
@@ -23,74 +23,15 @@
  *
  * Code sample:
  ******************************************************************************/
-// Enclosing macro to prevent multiple inclusion
-#ifndef LED_H_
-#define LED_H_
+#ifndef SOURCE_MID_kalman_FILTER_kalman_FILTER_H_
+#define SOURCE_MID_kalman_FILTER_kalman_FILTER_H_
 /******************************************************************************/
 /*                              INCLUDE FILES                                 */
 /******************************************************************************/
-#include "typedefs.h"
-/******************************************************************************/
-/*                     PRIVATE TYPES and DEFINITIONS                         */
-/******************************************************************************/
-
+#include <typedefs.h>
 /******************************************************************************/
 /*                     EXPORTED TYPES and DEFINITIONS                         */
 /******************************************************************************/
-#define LED_RGB_COUNT				2
-#define LED_RGB_ELEMENT				3
-
-#define LED_PORT_1					gpioPortA
-#define LED_BLUE_PIN_1				(0U)
-#define LED_GREEN_PIN_1				(3U)
-#define LED_RED_PIN_1				(4U)
-
-#define LED_PORT_2					gpioPortD
-#define LED_BLUE_PIN_2				(2U)
-#define LED_GREEN_PIN_2				(1U)
-#define LED_RED_PIN_2				(0U)
-
-#define LED_RGB_1                       { { LED_PORT_1, LED_RED_PIN_1 }, { LED_PORT_1, LED_GREEN_PIN_1 }, { LED_PORT_1, LED_BLUE_PIN_1 } }
-#define LED_RGB_2                       { { LED_PORT_2, LED_RED_PIN_2 }, { LED_PORT_2, LED_GREEN_PIN_2 }, { LED_PORT_2, LED_BLUE_PIN_2 } }
-
-typedef enum{
-	LED1,
-	LED2
-}LedNumber;
-typedef enum
-{
-	ledOff 				= 0x000,
-	ledRed				= BIT(0),
-	ledGreen			= BIT(1),
-	ledBlue				= BIT(2),
-	ledPink				= ledRed  | ledBlue,
-	ledyellow			= ledGreen| ledRed,
-	ledRGB				= ledRed  | ledGreen | ledBlue
-}LedColor;
-
-typedef enum
-{
-	red,
-	green,
-	blue,
-	off
-}LedState;
-
-enum{
-	LED_FREE,
-	LED_TOGGLE
-};
-
-typedef struct {
-  GPIO_Port_TypeDef   port;
-  unsigned int        pin;
-  bool 				  ledBlinkMode;
-  LedColor		  color;
-  u32_t 			  onTime;
-  u32_t			  offTime;
-  u8_t			  blinkTime;
-} LedArray_t;
-
 /******************************************************************************/
 /*                              PRIVATE DATA                                  */
 /******************************************************************************/
@@ -98,20 +39,19 @@ typedef struct {
 /******************************************************************************/
 /*                              EXPORTED DATA                                 */
 /******************************************************************************/
-
 /******************************************************************************/
 /*                            PRIVATE FUNCTIONS                               */
 /******************************************************************************/
-
 /******************************************************************************/
 /*                            EXPORTED FUNCTIONS                              */
 /******************************************************************************/
-void_t ledInit(void_t);
-void_t turnOffLedRBG(LedNumber index);
-void_t toggleLed(LedNumber ledIndex, LedColor color, u8_t toggleTime, u32_t onTimeMs, u32_t offTimeMs);
-/******************************************************************************/
-#endif /* LED_H_ */
 
-
-
-
+void_t kalmanFilterInit(float_t mea_e, float_t est_e, float_t q);
+float_t kalmanFilter_updateEstimate(float_t mea);
+void_t kalmanFilter_setMeasurementError(float_t mea_e);
+void_t kalmanFilter_setEstimateError(float_t est_e);
+void_t kalmanFilter_setProcessNoise(float_t q);
+float_t kalmanFilter_getkalmanGain(void_t);
+float_t kalmanFilter_getEstimateError(void_t);
+u32_t kalmanMeasure(u32_t sensorValue);
+#endif /* SOURCE_MID_kalman_FILTER_kalman_FILTER_H_ */

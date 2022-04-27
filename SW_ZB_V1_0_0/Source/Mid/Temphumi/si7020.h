@@ -12,7 +12,7 @@
  * Lumi, JSC.
  * All Rights Reserved
  *
- * File name: led.h
+ * File name: si7020.h
  *
  * Description:
  *
@@ -24,72 +24,40 @@
  * Code sample:
  ******************************************************************************/
 // Enclosing macro to prevent multiple inclusion
-#ifndef LED_H_
-#define LED_H_
+#ifndef SI7020_H_
+#define SI7020_H_
 /******************************************************************************/
 /*                              INCLUDE FILES                                 */
 /******************************************************************************/
-#include "typedefs.h"
+#include <typedefs.h>
 /******************************************************************************/
 /*                     PRIVATE TYPES and DEFINITIONS                         */
 /******************************************************************************/
 
+
 /******************************************************************************/
 /*                     EXPORTED TYPES and DEFINITIONS                         */
 /******************************************************************************/
-#define LED_RGB_COUNT				2
-#define LED_RGB_ELEMENT				3
+#define I2C_GPIO							 gpioPortB
+#define I2C0_PIN_SDA			    		 	 1
+#define I2C0_PIN_SCL			    			 0
+#define SCAN_TEMP_AND_HUMI						10000
 
-#define LED_PORT_1					gpioPortA
-#define LED_BLUE_PIN_1				(0U)
-#define LED_GREEN_PIN_1				(3U)
-#define LED_RED_PIN_1				(4U)
+/* I2C device address for Si7020 */
+#define SI7020_ADDR            0x40
 
-#define LED_PORT_2					gpioPortD
-#define LED_BLUE_PIN_2				(2U)
-#define LED_GREEN_PIN_2				(1U)
-#define LED_RED_PIN_2				(0U)
+/* Device ID value for Si7020 */
+#define SI7020_DEVICE_ID       0x14
 
-#define LED_RGB_1                       { { LED_PORT_1, LED_RED_PIN_1 }, { LED_PORT_1, LED_GREEN_PIN_1 }, { LED_PORT_1, LED_BLUE_PIN_1 } }
-#define LED_RGB_2                       { { LED_PORT_2, LED_RED_PIN_2 }, { LED_PORT_2, LED_GREEN_PIN_2 }, { LED_PORT_2, LED_BLUE_PIN_2 } }
+/* Si7020 Read Temperature Command */
+#define SI7020_READ_TEMP       0xE0
 
-typedef enum{
-	LED1,
-	LED2
-}LedNumber;
-typedef enum
-{
-	ledOff 				= 0x000,
-	ledRed				= BIT(0),
-	ledGreen			= BIT(1),
-	ledBlue				= BIT(2),
-	ledPink				= ledRed  | ledBlue,
-	ledyellow			= ledGreen| ledRed,
-	ledRGB				= ledRed  | ledGreen | ledBlue
-}LedColor;
+/* Si7020 Read RH Command */
+#define SI7020_READ_RH         0xE5
 
-typedef enum
-{
-	red,
-	green,
-	blue,
-	off
-}LedState;
-
-enum{
-	LED_FREE,
-	LED_TOGGLE
-};
-
-typedef struct {
-  GPIO_Port_TypeDef   port;
-  unsigned int        pin;
-  bool 				  ledBlinkMode;
-  LedColor		  color;
-  u32_t 			  onTime;
-  u32_t			  offTime;
-  u8_t			  blinkTime;
-} LedArray_t;
+/* SI7020 ID */
+#define SI7020_READ_ID_1       0xFC
+#define SI7020_READ_ID_2       0xC9
 
 /******************************************************************************/
 /*                              PRIVATE DATA                                  */
@@ -106,12 +74,10 @@ typedef struct {
 /******************************************************************************/
 /*                            EXPORTED FUNCTIONS                              */
 /******************************************************************************/
-void_t ledInit(void_t);
-void_t turnOffLedRBG(LedNumber index);
-void_t toggleLed(LedNumber ledIndex, LedColor color, u8_t toggleTime, u32_t onTimeMs, u32_t offTimeMs);
+void_t initI2C(void_t);
+void_t si7020_Init (void_t);
+bool_t si7020_Measure (u32_t *buffer, u8_t command, u8_t Length_Data);
+u32_t si7020_MeasureHumi (void_t);
+u32_t si7020_MeasureTemp (void_t);
 /******************************************************************************/
-#endif /* LED_H_ */
-
-
-
-
+#endif /* SI7020_H_ */

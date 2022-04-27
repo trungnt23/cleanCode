@@ -162,7 +162,7 @@ u32_t lightSensorPollingRead(void_t)
 	// Get ADC result
 	iadcResult = IADC_pullSingleFifoResult(IADC0);
 	g_dwValueADC = iadcResult.data;
-	g_dwKalmanLight = Kalman_sensor(g_dwValueADC);
+	g_dwKalmanLight = kalmanMeasure(g_dwValueADC);
 	// Calculate input voltage:
 	//  For differential inputs, the resultant range is from -Vref to +Vref, i.e.,
 	//  for Vref = AVDD = 3.30V, 12 bits represents 6.60V full scale IADC range.

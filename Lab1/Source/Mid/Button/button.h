@@ -82,7 +82,7 @@ enum
 
 typedef struct {
   GPIO_Port_TypeDef		port;
-  unsigned int			pin;
+  uint_t				pin;
   bool_t				state;
   u8_t					pressCount;
   u8_t					holdTime;
@@ -108,7 +108,7 @@ typedef struct {
 /*                            PRIVATE FUNCTIONS                               */
 /******************************************************************************/
 
-typedef void_t (*buttonHoldingEvent)(u8_t btIndex, ButtonEvent holdEven );
+typedef void_t (*buttonHoldingEvent)(u8_t btIndex, ButtonEvent holdEvent );
 typedef void_t (*buttonPressAndHoldEvent)(u8_t btIndex, ButtonEvent pressAndHoldevent);
 
 void_t buttonInit(buttonHoldingEvent holdingHandle,buttonPressAndHoldEvent pressAndHoldeHandler);

@@ -12,15 +12,14 @@
  * Lumi, JSC.
  * All Rights Reserved
  *
- * File name: led.c
+ * File name: LED.c
  *
- * Description:
+ * Description: process led
  *
  *
  * Last Changed By:  $Author: trungnt $
  * Revision:         $Revision: $
- * Last Changed:     $Date: $April 15, 2022
- *
+ * Last Changed:     $Date: $April 27, 2022
  *
  ******************************************************************************/
 /******************************************************************************/
@@ -38,18 +37,20 @@
 /*                     EXPORTED TYPES and DEFINITIONS                         */
 /******************************************************************************/
 
+
 /******************************************************************************/
 /*                              PRIVATE DATA                                  */
 /******************************************************************************/
-EmberEventControl led1ToggleEventControl,led2ToggleEventControl;
-EmberEventControl *pLedEventControl[LED_RGB_COUNT];
 
-LedArray_t g_led_Array[LED_RGB_COUNT][LED_RGB_ELEMENT] = {LED_RGB_1, LED_RGB_2};
-LedArray_t g_ledAction[LED_RGB_COUNT];
 /******************************************************************************/
 /*                              EXPORTED DATA                                 */
 /******************************************************************************/
 
+EmberEventControl led1ToggleEventControl,led2ToggleEventControl;
+EmberEventControl *ledEventControl[LED_RGB_COUNT];
+
+LedArray_t g_ledArray[LED_RGB_COUNT][LED_RGB_ELEMENT] = {LED_RGB_1, LED_RGB_2};
+LedArray_t g_ledAction[LED_RGB_COUNT];
 /******************************************************************************/
 /*                            PRIVATE FUNCTIONS                               */
 /******************************************************************************/
@@ -59,6 +60,14 @@ static void_t toggleLedHandle(LedNumber ledIndex);
 /******************************************************************************/
 
 /******************************************************************************/
+
+
+
+
+
+
+
+
 /**
  * @func    ledInit
  * @brief   Initialize LED
@@ -72,37 +81,58 @@ void_t ledInit(void_t)
 	{
 		for(int j = 0; j< LED_RGB_ELEMENT;j++)
 		{
-			GPIO_PinModeSet(g_led_Array[i][j].port, g_led_Array[i][j].pin,
+			GPIO_PinModeSet(g_ledArray[i][j].port, g_ledArray[i][j].pin,
 							gpioModePushPull,0);
 		}
 	}
-	turnOffLedRBG(LED1);
-	turnOffLedRBG(LED2);
-	pLedEventControl[LED1] =(EmberEventControl *) &led1ToggleEventControl;
-	pLedEventControl[LED2] =(EmberEventControl *) &led2ToggleEventControl;
+	turnOffRBGLed(LED1);
+	turnOffRBGLed(LED2);
+	ledEventControl[LED1] =(EmberEventControl *) &led1ToggleEventControl;
+	ledEventControl[LED2] =(EmberEventControl *) &led2ToggleEventControl;
 }
 
+
 /**
- * @func    GetHumi_Sensor
- * @brief   Get value humidity
- * @param   None
- * @retval  Humidity
+ * @func    turnOffRBGLed
+ * @brief   Turn off number led
+ * @param   LedNumber
+ * @retval  None
  */
-void_t turnOffLedRBG(LedNumber index)
+void_t turnOffRBGLed(LedNumber index)
 {
 	for(int j=0;j<LED_RGB_ELEMENT;j++)
 	{
-		GPIO_PinOutSet(g_led_Array[index][j].port, g_led_Array[index][j].pin);
+		GPIO_PinOutSet(g_ledArray[index][j].port, g_ledArray[index][j].pin);
+	}
+}
+
+/**
+ * @func    turnOnLed
+ * @brief   Turn on led
+ * @param   LedNumber, LedColor
+ * @retval  None
+ */
+void_t turnOnLed(LedNumber index, LedColor color)
+{
+	for(int j=0;j<LED_RGB_ELEMENT;j++)
+	{
+		if(((color >> j) & 0x01) == LED_SET_ON)
+		{
+			GPIO_PinOutClear(g_ledArray[index][j].port, g_ledArray[index][j].pin);
+		}
+		else{
+			GPIO_PinOutSet(g_ledArray[index][j].port, g_ledArray[index][j].pin);
+		}
 	}
 }
 
 /**
  * @func    toggleLed
  * @brief   toggled LED
- * @param   None
+ * @param   LedNumber, LedColor, toggleTime, onTimeMs, offTimeMs
  * @retval  None
  */
-void_t toggleLed(LedNumber ledIndex, LedColor color, uint8_t toggleTime, uint32_t onTimeMs, uint32_t offTimeMs)
+void_t toggleLed(LedNumber ledIndex, LedColor color, u8_t toggleTime, u32_t onTimeMs, u32_t offTimeMs)
 {
 	g_ledAction[ledIndex].ledBlinkMode = LED_TOGGLE;
 	g_ledAction[ledIndex].color = color;
@@ -110,13 +140,13 @@ void_t toggleLed(LedNumber ledIndex, LedColor color, uint8_t toggleTime, uint32_
 	g_ledAction[ledIndex].offTime = offTimeMs;
 	g_ledAction[ledIndex].blinkTime = toggleTime*2;
 
-	emberEventControlSetActive(*pLedEventControl[ledIndex]);
+	emberEventControlSetActive(*ledEventControl[ledIndex]);
 }
 
 /**
  * @func    toggleLedHandle
  * @brief   Event Led Handler
- * @param   None
+ * @param   LedNumber
  * @retval  None
  */
 static void_t toggleLedHandle(LedNumber ledIndex)
@@ -129,21 +159,21 @@ static void_t toggleLedHandle(LedNumber ledIndex)
 			{
 				if(((g_ledAction[ledIndex].color >> i ) & 0x01) == 1 )
 				{
-					GPIO_PinOutClear(g_led_Array[ledIndex][i].port, g_led_Array[ledIndex][i].pin);
+					GPIO_PinOutClear(g_ledArray[ledIndex][i].port, g_ledArray[ledIndex][i].pin);
 				}
 				else
 				{
-					GPIO_PinOutSet(g_led_Array[ledIndex][i].port, g_led_Array[ledIndex][i].pin);
+					GPIO_PinOutSet(g_ledArray[ledIndex][i].port, g_ledArray[ledIndex][i].pin);
 				}
 			}
-			emberEventControlSetDelayMS(*pLedEventControl[ledIndex], g_ledAction[ledIndex].onTime);
+			emberEventControlSetDelayMS(*ledEventControl[ledIndex], g_ledAction[ledIndex].onTime);
 		}else
 		{
 			for( int j = 0; j<LED_RGB_ELEMENT; j++)
 			{
-				GPIO_PinOutSet(g_led_Array[ledIndex][j].port, g_led_Array[ledIndex][j].pin);
+				GPIO_PinOutSet(g_ledArray[ledIndex][j].port, g_ledArray[ledIndex][j].pin);
 			}
-			emberEventControlSetDelayMS(*pLedEventControl[ledIndex], g_ledAction[ledIndex].offTime);
+			emberEventControlSetDelayMS(*ledEventControl[ledIndex], g_ledAction[ledIndex].offTime);
 		}
 		g_ledAction[ledIndex].blinkTime--;
 	}
@@ -152,7 +182,7 @@ static void_t toggleLedHandle(LedNumber ledIndex)
 		g_ledAction[ledIndex].ledBlinkMode = LED_FREE;
 		for( int j = 0; j<LED_RGB_ELEMENT; j++)
 		{
-			GPIO_PinOutSet(g_led_Array[ledIndex][j].port, g_led_Array[ledIndex][j].pin);
+			GPIO_PinOutSet(g_ledArray[ledIndex][j].port, g_ledArray[ledIndex][j].pin);
 		}
 	}
 }
